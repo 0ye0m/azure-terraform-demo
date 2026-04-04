@@ -12,7 +12,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "demo" {
-  name     = "rg-om-demo"
+  name = "rg-om-demo-1"
   location = "East Asia"
 }
 
