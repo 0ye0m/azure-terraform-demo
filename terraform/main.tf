@@ -11,13 +11,11 @@ provider "azurerm" {
   features {}
 }
 
-# Resource Group
 resource "azurerm_resource_group" "demo" {
   name     = "rg-om-demo"
-  location = "Central India"
+  location = "East Asia"
 }
 
-# Storage Account
 resource "azurerm_storage_account" "demo_sa" {
   name                     = "omstorage992211"
   resource_group_name      = azurerm_resource_group.demo.name
@@ -26,11 +24,10 @@ resource "azurerm_storage_account" "demo_sa" {
   account_replication_type = "LRS"
 }
 
-# Static Web App
 resource "azurerm_static_web_app" "demo_swa" {
   name                = "om-static-demo"
   resource_group_name = azurerm_resource_group.demo.name
-  location            = "Central India"
+  location            = "East Asia"
   sku_tier            = "Free"
   sku_size            = "Free"
 }
