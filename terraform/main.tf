@@ -1,4 +1,11 @@
 terraform {
+  backend "azurerm" {
+    resource_group_name  = "rg-tfstate"
+    storage_account_name = "tfstateom12345"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
+  }
+
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -14,18 +21,15 @@ provider "azurerm" {
   features {}
 }
 
-# Random for unique storage name
 resource "random_id" "rand" {
   byte_length = 4
 }
 
-# Resource Group
 resource "azurerm_resource_group" "demo" {
-  name     = "rg-om-demo-1"
+  name     = "rg-om-demo-prod"
   location = "East Asia"
 }
 
-# Storage Account (unique name)
 resource "azurerm_storage_account" "demo_sa" {
   name                     = "omstorage${random_id.rand.hex}"
   resource_group_name      = azurerm_resource_group.demo.name
@@ -34,9 +38,8 @@ resource "azurerm_storage_account" "demo_sa" {
   account_replication_type = "LRS"
 }
 
-# Static Web App (use safe region)
 resource "azurerm_static_web_app" "demo_swa" {
-  name                = "om-static-demo"
+  name                = "om-static-demo-prod"
   resource_group_name = azurerm_resource_group.demo.name
   location            = "East Asia"
   sku_tier            = "Free"
