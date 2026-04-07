@@ -1,10 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Om Demo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terraform + Azure Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      max-width: 450px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      font-size: 0.9rem;
+      color: #00d4ff;
+      margin-bottom: 15px;
+    }
+
+    p {
+      opacity: 0.85;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+
+    button {
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 5px 20px rgba(0, 114, 255, 0.6);
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+
+    .tech {
+      margin-top: 15px;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body>
-  <h1>🚀 Terraform + GitHub Actions + Azure</h1>
-  <p>This is deployed using CI/CD</p>
+
+  <div class="card">
+    <h1>☁️ Terraform + Azure</h1>
+    <div class="tag">Infrastructure as Code Demo</div>
+
+    <p>
+      This demo showcases how Terraform is used to provision and manage
+      cloud infrastructure on Microsoft Azure in an automated and scalable way.
+    </p>
+
+    <button onclick="showMessage()">Deploy Infrastructure</button>
+
+    <div class="tech">
+      ⚙️ Terraform | ☁️ Azure | 🚀 DevOps
+    </div>
+
+    <div class="footer">Built for Cloud Demo 🌐</div>
+  </div>
+
+  <script>
+    function showMessage() {
+      alert("🚀 Terraform is provisioning resources on Azure!\nCheck your cloud dashboard...");
+    }
+  </script>
+
 </body>
 </html>
