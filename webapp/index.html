@@ -50,6 +50,13 @@
       line-height: 1.5;
     }
 
+    .counter {
+      font-size: 2rem;
+      margin: 20px 0;
+      color: #00c6ff;
+      font-weight: 600;
+    }
+
     button {
       background: linear-gradient(45deg, #00c6ff, #0072ff);
       border: none;
@@ -59,6 +66,7 @@
       font-size: 1rem;
       cursor: pointer;
       transition: 0.3s ease;
+      margin: 5px;
     }
 
     button:hover {
@@ -86,22 +94,42 @@
     <div class="tag">Infrastructure as Code Demo</div>
 
     <p>
-      This demo showcases how Terraform is used to provision and manage
-      cloud infrastructure on Microsoft Azure in an automated and scalable way.
+      live counter 🚀
     </p>
 
-    <button onclick="showMessage()">Deploy Infrastructure</button>
+    <div class="counter" id="counter">0</div>
+
+    <button onclick="startDeploy()">Start Deploy</button>
+    <button onclick="resetCounter()">Reset</button>
 
     <div class="tech">
       ⚙️ Terraform | ☁️ Azure | 🚀 DevOps
     </div>
 
-    <div class="footer">Built for Cloud Demo 🌐</div>
+    <div class="footer">Built by Om🌐</div>
   </div>
 
   <script>
-    function showMessage() {
-      alert("🚀 Terraform is provisioning resources on Azure!\nCheck your cloud dashboard...");
+    let count = 0;
+    let interval;
+
+    function startDeploy() {
+      clearInterval(interval);
+      interval = setInterval(() => {
+        count++;
+        document.getElementById("counter").innerText = count + "%";
+
+        if (count >= 100) {
+          clearInterval(interval);
+          alert("✅ Deployment Completed Successfully on Azure!");
+        }
+      }, 50);
+    }
+
+    function resetCounter() {
+      clearInterval(interval);
+      count = 0;
+      document.getElementById("counter").innerText = "0";
     }
   </script>
 
